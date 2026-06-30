@@ -60,7 +60,8 @@ export default function Contact() {
 
         setLoading(true)
         try {
-            const contactApiUrl = 'https://codewithhassan-backend.vercel.app/api/send-email'
+            // ✅ Environment variable use karo
+            const contactApiUrl = `${import.meta.env.VITE_API_URL}/send-email`
             const response = await fetch(contactApiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

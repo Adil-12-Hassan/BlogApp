@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../components/footer';
 import Navbar from '../../components/navbar';
+import SEOHead from '../../components/SEOHead';
 import API_BASE_URL from '../../config';
 
-export default function AdminLogin() {
+export default function AdminLogin({ onLoginSuccess }) {
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
@@ -39,9 +41,12 @@ export default function AdminLogin() {
         setLoading(false);
         return;
       }
-
       localStorage.setItem('cwh_token', data.token);
-      navigate('/admin/dashboard');
+      if (onLoginSuccess) {
+        onLoginSuccess(); // App.jsx wala callback
+      } else {
+        navigate('/admin/dashboard'); // Fallback
+      }
     } catch {
       setError('Server not reachable. Make sure backend is running.');
       setLoading(false);
@@ -50,10 +55,11 @@ export default function AdminLogin() {
 
   return (
     <>
+      <SEOHead title="Admin Login" noindex={true} />
       <Navbar />
       <div className="admin-login-page">
         <div className="admin-login-card">
-          <span className="admin-logo-text">⚡ CodeWithHassan</span>
+          <span className="admin-logo-text">CodeWithHassan</span>
           <h1>Admin Login</h1>
           <p>Sign in to manage your website content</p>
 

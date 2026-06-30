@@ -53,13 +53,13 @@ const Projects = () => {
             id: 8,
             title: "LearnForgeLMS",
             desc: "Exciting projects are on the way! Stay tuned for updates and new additions to my portfolio.",
-            link: "#portfolio",
+            link: "#projects",
             category: "Coming Soon"
         }
     ];
 
     return (
-        <section className="projects" id="portfolio">
+        <section className="projects" id="projects">
             <div className="section-title">
                 <h2>My <span>Projects</span></h2>
                 <div className="title-line"></div>

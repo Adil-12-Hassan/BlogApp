@@ -36,13 +36,13 @@ export default function Navbar() {
 
     return (
         <nav className="navbar" id="navbar" ref={navRef}>
-            <Link to="/" className="logo">SYED<span>.</span></Link>
+            <Link to="/" className="logo">HASSAN<span>.</span></Link>
 
             <ul className={`nav-links ${menuOpen ? 'open' : ''}`} id="navLinks">
                 <NavItem href="#home" isHomePage={isHomePage} closeMenu={closeMenu}>Home</NavItem>
                 <NavItem href="#about" isHomePage={isHomePage} closeMenu={closeMenu}>About</NavItem>
                 <NavItem href="#services" isHomePage={isHomePage} closeMenu={closeMenu}>Services</NavItem>
-                <NavItem href="#portfolio" isHomePage={isHomePage} closeMenu={closeMenu}>Projects</NavItem>
+                <NavItem href="#projects" isHomePage={isHomePage} closeMenu={closeMenu}>Projects</NavItem>
                 <NavItem href="#blog" isHomePage={isHomePage} closeMenu={closeMenu}>Blogs</NavItem>
                 <li><a href="https://hassan-porfolio-web.vercel.app/" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Portfolio</a></li>
             </ul>

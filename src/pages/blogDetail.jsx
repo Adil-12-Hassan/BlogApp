@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
+import SEOHead from '../components/SEOHead';
 import API_BASE_URL from '../config';
 
 export default function BlogDetail() {
-    const { id } = useParams();
+    const { slug } = useParams();
     const [blog, setBlog] = useState(null);
     const [recentBlogs, setRecentBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -16,9 +18,9 @@ export default function BlogDetail() {
             setLoading(true);
             try {
                 // Fetch current blog
-                const blogRes = await fetch(`${API_BASE_URL}/blogs/${id}`);
+                const blogRes = await fetch(`${API_BASE_URL}/blogs/${slug}`);
                 const blogData = await blogRes.json();
-                
+
                 if (blogRes.ok) {
                     setBlog(blogData);
                 } else {
@@ -30,7 +32,7 @@ export default function BlogDetail() {
                 const recentData = await recentRes.json();
                 if (recentRes.ok) {
                     // Filter out current blog and take top 3
-                    const otherBlogs = recentData.filter(b => b._id !== id).slice(0, 3);
+                    const otherBlogs = recentData.filter(b => b._id !== blogData._id).slice(0, 3);
                     setRecentBlogs(otherBlogs);
                 }
             } catch {
@@ -43,7 +45,7 @@ export default function BlogDetail() {
         fetchBlogAndRecent();
         // Scroll to top when blog changes
         window.scrollTo(0, 0);
-    }, [id]);
+    }, [slug]);
 
     if (loading) return (
         <>
@@ -68,8 +70,53 @@ export default function BlogDetail() {
         </>
     );
 
+    // Prepare JSON-LD Schema
+    const blogSchema = blog ? {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": blog.title,
+        "description": blog.description,
+        "image": blog.coverImage || blog.thumbnail || "https://code-with-hassan-phi.vercel.app/my.jpg",
+        "datePublished": blog.createdAt,
+        "dateModified": blog.updatedAt || blog.createdAt,
+        "author": {
+            "@type": "Person",
+            "name": "Adil Hassan",
+            "url": "https://code-with-hassan-phi.vercel.app"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "CodeWithHassan",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://code-with-hassan-phi.vercel.app/favicon.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://code-with-hassan-phi.vercel.app/blog/${blog.slug}`
+        }
+    } : null;
+
     return (
         <>
+            {blog && (
+                <>
+                    <SEOHead
+                        title={blog.title}
+                        description={blog.description}
+                        url={`/blog/${blog.slug}`}
+                        image={blog.coverImage || blog.thumbnail || "https://code-with-hassan-phi.vercel.app/my.jpg"}
+                        keywords={blog.tags ? blog.tags.join(', ') : 'adil12hassan'}
+                        ogType="article"
+                    />
+                    <Helmet>
+                        <script type="application/ld+json">
+                            {JSON.stringify(blogSchema)}
+                        </script>
+                    </Helmet>
+                </>
+            )}
             <Navbar />
             <main className="blog-detail-page">
                 <div className="blog-detail-container">
@@ -92,9 +139,9 @@ export default function BlogDetail() {
                     </header>
 
                     {/* Featured Image */}
-                    {blog.thumbnail && (
+                    {(blog.coverImage || blog.thumbnail) && (
                         <div className="blog-detail-image">
-                            <img src={blog.thumbnail} alt={blog.title} />
+                            <img src={blog.coverImage || blog.thumbnail} alt={blog.title} loading="lazy" />
                         </div>
                     )}
 
@@ -112,8 +159,8 @@ export default function BlogDetail() {
                             <h3 className="related-title">More Stories</h3>
                             <div className="related-grid">
                                 {recentBlogs.map((recent) => (
-                                    <Link to={`/blog/${recent._id}`} key={recent._id} className="related-card">
-                                        {recent.thumbnail && <img src={recent.thumbnail} alt={recent.title} />}
+                                    <Link to={`/blog/${recent.slug || recent._id}`} key={recent._id} className="related-card">
+                                        {(recent.coverImage || recent.thumbnail) && <img src={recent.coverImage || recent.thumbnail} alt={recent.title} loading="lazy" />}
                                         <div className="related-info">
                                             <h4>{recent.title}</h4>
                                             <span>{new Date(recent.createdAt).toLocaleDateString()}</span>
@@ -135,3 +182,4 @@ export default function BlogDetail() {
         </>
     );
 }
+

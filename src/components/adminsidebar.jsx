@@ -1,11 +1,12 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 
-export default function AdminSidebar() {
+export default function AdminSidebar({ onClose }) {
     const navigate = useNavigate()
 
     function handleLogout() {
         localStorage.removeItem('cwh_token')
         navigate('/admin')
+        if (onClose) onClose() // ✅ Logout pe bhi band
     }
 
     return (
@@ -21,6 +22,7 @@ export default function AdminSidebar() {
                     className={({ isActive }) =>
                         isActive ? 'admin-nav-link active' : 'admin-nav-link'
                     }
+                    onClick={() => onClose && onClose()} // ✅
                 >
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <rect x="3" y="3" width="7" height="7" />
@@ -36,6 +38,7 @@ export default function AdminSidebar() {
                     className={({ isActive }) =>
                         isActive ? 'admin-nav-link active' : 'admin-nav-link'
                     }
+                    onClick={() => onClose && onClose()} // ✅
                 >
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M12 5v14M5 12h14" />
@@ -48,6 +51,7 @@ export default function AdminSidebar() {
                     className={({ isActive }) =>
                         isActive ? 'admin-nav-link active' : 'admin-nav-link'
                     }
+                    onClick={() => onClose && onClose()} // ✅
                 >
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M4 6h16M4 12h16M4 18h16" />

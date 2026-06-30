@@ -17,7 +17,7 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer-top">
                 <div className="footer-brand">
-                    <Link to="/" className="footer-logo">SYED<span>.</span></Link>
+                    <Link to="/" className="footer-logo">HASSAN<span>.</span></Link>
                     <p className="footer-tagline">
                         MERN Stack Developer crafting fast, scalable,<br />
                         and beautifully designed web applications.
@@ -70,7 +70,7 @@ const Footer = () => {
             <div className="footer-divider"></div>
 
             <div className="footer-bottom">
-                <p>&copy; 2025 <span><Link to="/">Syed Hassan</Link></span>. All Rights Reserved.</p>
+                <p>&copy; 2026 <span><Link to="/">Adil Hassan (adil12hassan)</Link></span>. All Rights Reserved.</p>
                 <p>Built with <i className="fa-solid fa-heart"></i> using Hassan's Stack</p>
             </div>
         </footer>

@@ -38,7 +38,7 @@ export default function About() {
                 <div className="about-left">
                     <div className="about-img-wrapper">
                         <div className="about-img-border"></div>
-                        <img src={personImg} alt="Syed Hassan" className="about-img" />
+                        <img src={personImg} alt="Adil Hassan (adil12hassan) — MERN Stack Web Developer in Pakistan" className="about-img" loading="lazy" />
                     </div>
                 </div>
                 <div className="about-right">
@@ -52,7 +52,7 @@ export default function About() {
                     <div className="about-info">
                         <div className="info-item">
                             <span className="info-label">Name</span>
-                            <span className="info-value">Syed Hassan</span>
+                            <span className="info-value">Adil Hassan</span>
                         </div>
                         <div className="info-item">
                             <span className="info-label">Experience</span>

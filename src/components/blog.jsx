@@ -56,7 +56,7 @@ export default function Blog() {
                     <div className="blog-card" key={blog._id}>
                         {blog.thumbnail && (
                             <div className="blog-image">
-                                <img src={blog.thumbnail} alt={blog.title} />
+                                <img src={blog.thumbnail} alt={blog.title} loading="lazy" />
                             </div>
                         )}
                         <div className="blog-content">
@@ -74,7 +74,7 @@ export default function Blog() {
                             </div>
                             <h3 className="blog-title">{blog.title}</h3>
                             <p className="blog-desc">{blog.description}</p>
-                            <Link to={`/blog/${blog._id}`} className="read-more-btn">
+                            <Link to={`/blog/${blog.slug || blog._id}`} className="read-more-btn">
                                 Read More <i className="fa-solid fa-arrow-right"></i>
                             </Link>
                         </div>

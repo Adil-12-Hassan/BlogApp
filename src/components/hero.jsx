@@ -5,7 +5,8 @@ const Hero = () => {
             {/* LEFT */}
             <div className="hero-left">
                 <p className="greeting">Hi I am</p>
-                <h1 className="name">Syed Hassan</h1>
+                <h1 className="name">Adil Hassan</h1>
+                <p className="username-subtitle" style={{ fontSize: '18px', color: 'var(--orange)', fontWeight: '600', marginTop: '-5px', letterSpacing: '1px' }}>@adil12hassan (adil-12-hassan)</p>
                 <h2 className="title">MERN Stack Developer</h2>
 
                 {/* Social Icons */}
@@ -42,7 +43,7 @@ const Hero = () => {
             {/* RIGHT */}
             <div className="hero-right">
                 <div className="circle-bg"></div>
-                <img src={personImg} alt="Syed Hassan" className="hero-img" />
+                <img src={personImg} alt="Adil Hassan — adil12hassan — MERN Stack Developer" className="hero-img" />
             </div>
         </section>
     );

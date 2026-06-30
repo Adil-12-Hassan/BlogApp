@@ -6,14 +6,13 @@ import AdminBlogEditor from './pages/admin/adminBlogEditor';
 import BlogDetail from './pages/blogDetail';
 import NotFound from './components/notFound';
 import ProtectedRoute from './components/ProtectedRoute';
-
 function AppRoutes() {
   const navigate = useNavigate();
 
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/blog/:id" element={<BlogDetail />} />
+      <Route path="/blog/:slug" element={<BlogDetail />} />
       <Route path="/admin" element={<AdminLogin onLoginSuccess={() => navigate('/admin/dashboard')} />} />
       
       {/* Protected Admin Routes */}
