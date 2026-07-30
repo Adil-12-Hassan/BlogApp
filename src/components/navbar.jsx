@@ -42,9 +42,9 @@ export default function Navbar() {
                 <NavItem href="#home" isHomePage={isHomePage} closeMenu={closeMenu}>Home</NavItem>
                 <NavItem href="#about" isHomePage={isHomePage} closeMenu={closeMenu}>About</NavItem>
                 <NavItem href="#services" isHomePage={isHomePage} closeMenu={closeMenu}>Services</NavItem>
+                <NavItem href="#profiles" isHomePage={isHomePage} closeMenu={closeMenu}>Profiles</NavItem>
                 <NavItem href="#projects" isHomePage={isHomePage} closeMenu={closeMenu}>Projects</NavItem>
                 <NavItem href="#blog" isHomePage={isHomePage} closeMenu={closeMenu}>Blogs</NavItem>
-                <li><a href="https://hassan-porfolio-web.vercel.app/" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Portfolio</a></li>
             </ul>
 
             {isHomePage ? (
