@@ -55,6 +55,30 @@ const Projects = () => {
             desc: "Exciting projects are on the way! Stay tuned for updates and new additions to my portfolio.",
             link: "#projects",
             category: "Coming Soon"
+        },
+
+        {
+            id: 9,
+            title: "Doctor Dental",
+            desc: "I am very excited to share this projects with you. I create this frontend using HTML5 & CSS3.",
+            link: "https://doctor-dental.vercel.app/",
+            category: "Frontend"
+        },
+
+        {
+            id: 10,
+            title: "Website Mentainer",
+            desc: "I create this website for a website mentainer, who update, upgrade and fix bug/errors in others projects.",
+            link: "https://website-mentainer.vercel.app/",
+            category: "Frontend"
+        },
+
+        {
+            id: 11,
+            title: "Audio Station",
+            desc: "I create a simple audio editor. You can improve your audio, bass, fade and other things.",
+            link: "https://play-station-mu.vercel.app/",
+            category: "Frontend"
         }
     ];
 

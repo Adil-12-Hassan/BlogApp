@@ -2,68 +2,285 @@
 /* ── Google Font ── */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-/* ── CSS Variables ── */
 :root {
-  --bg-app: #0e131d;
-  --bg-surface: #171f33;
-  --bg-surface-elevated: #222d47;
-  --bg-surface-hover: #2c3a5a;
+  /* =========================================================
+       MONOCHROME DARK FUTURISTIC THEME
+       Doctor / Dentist
+       Black • Dark Gray • White
+       ========================================================== */
+  /* ---------------------------------------------------------
+       BACKGROUND SYSTEM
+    --------------------------------------------------------- */
+  --bg-app: #030303;
+  --bg-surface: #080808;
+  --bg-surface-elevated: #0d0d0d;
+  --bg-surface-hover: #121212;
+  /* ---------------------------------------------------------
+       TYPOGRAPHY
+    --------------------------------------------------------- */
+  --text-main: #f5f5f5;
+  --text-secondary: #b8b8b8;
+  --text-muted: #777777;
+  --text-light: #555555;
+  --white: #ffffff;
+  --black: #000000;
+  /* ---------------------------------------------------------
+       HEADING COLORS
+    --------------------------------------------------------- */
+  --text-heading: #ffffff;
+  --text-heading-soft: #dddddd;
+  /* ---------------------------------------------------------
+       BORDER SYSTEM
+    --------------------------------------------------------- */
 
-  --text-main: #edf2ff;
-  --text-secondary: #a7b3d1;
-  --text-muted: #7e8aa6;
-  --white: #edf2ff;
+  --border-subtle: #111111;
+  --border-visible: #1c1c1c;
+  --border-strong: #292929;
+  --border-muted: #151515;
 
-  --border-subtle: #161f2d;
-  --border-visible: #394c73;
+  --border-accent: #ffffff;
 
-  --accent: #68b7ff;
-  --accent-hover: #4a99ff;
-  --accent-tint: color-mix(in srgb, var(--accent) 12%, transparent);
 
-  --success: #4ade80;
-  --success-tint: rgba(74, 222, 128, 0.12);
+  /* ---------------------------------------------------------
+       PRIMARY
+    --------------------------------------------------------- */
 
-  --danger: #fb7185;
-  --danger-tint: rgba(251, 113, 133, 0.12);
+  --accent: #ffffff;
+  --accent-hover: #dddddd;
 
-  --warning: #fbbf24;
-  --warning-tint: rgba(251, 191, 36, 0.1);
+  --accent-light: #111111;
+  --accent-soft: #181818;
+
+  --accent-tint: rgba(255, 255, 255, 0.04);
+  --accent-glow: rgba(255, 255, 255, 0.10);
+
+
+  /* ---------------------------------------------------------
+       BRAND / SECONDARY
+    --------------------------------------------------------- */
+
+  --brand-red: #ffffff;
+  --brand-red-hover: #dddddd;
+  --brand-red-light: #111111;
+
+  --brand-red-tint: rgba(255, 255, 255, 0.04);
+  --brand-red-glow: rgba(255, 255, 255, 0.10);
+
+
+  /* ---------------------------------------------------------
+       STATUS COLORS
+       Monochrome
+    --------------------------------------------------------- */
+
+  --success: #ffffff;
+  --success-hover: #dddddd;
+  --success-light: #101010;
+  --success-tint: rgba(255, 255, 255, 0.04);
+
+
+  --danger: #ffffff;
+  --danger-hover: #dddddd;
+  --danger-light: #101010;
+  --danger-tint: rgba(255, 255, 255, 0.04);
+
+
+  --warning: #cccccc;
+  --warning-hover: #ffffff;
+  --warning-light: #111111;
+  --warning-tint: rgba(255, 255, 255, 0.04);
+
+
+  /* ---------------------------------------------------------
+       SURFACE SYSTEM
+    --------------------------------------------------------- */
+
+  --surface-dark: #101010;
+  --surface-darker: #080808;
+  --surface-deep: #030303;
+
+  --surface-light: #161616;
+  --surface-white: #ffffff;
+
+
+  /* ---------------------------------------------------------
+       NAVIGATION
+    --------------------------------------------------------- */
+
+  --navbar: rgba(3, 3, 3, 0.88);
+  --navbar-solid: #050505;
+  --navbar-border: rgba(255, 255, 255, 0.07);
+
+
+  /* ---------------------------------------------------------
+       BUTTONS
+    --------------------------------------------------------- */
+
+  --button-primary: #ffffff;
+  --button-hover: #dddddd;
+  --button-text: #000000;
+
+  --button-secondary: #111111;
+  --button-secondary-hover: #191919;
+
+
+  /* ---------------------------------------------------------
+       LEGACY / MAPPED VARIABLES
+    --------------------------------------------------------- */
 
   --bg: var(--bg-app);
   --bg-light: var(--bg-surface);
-  --navbar: var(--bg-surface-elevated);
-  --orange: var(--accent);
-  --gray: var(--text-muted);
-  --border-faint: var(--border-subtle);
-  --button-hover: var(--accent-hover);
-  --surface-dark: #232f4a;
-  --surface-darker: #19233a;
-  --surface-deep: #121927;
-  --border-muted: #3f526f;
-  --success-transparent: var(--success-tint);
-  --text-muted-light: #c8d4f0;
-  --orange-transparent: rgba(104, 183, 255, 0.12);
-  --orange-transparent-strong: rgba(104, 183, 255, 0.18);
-  --shadow-orange: rgba(104, 183, 255, 0.14);
-  --placeholder: #7a8aa8;
-  --border-white-soft: rgba(237, 242, 255, 0.14);
-  --footer-bg: #0d1321;
-  --footer-border: #18263d;
-  --overlay: rgba(0, 0, 0, 0.55);
-  --danger-light: rgba(251, 113, 133, 0.1);
-  --danger-border: rgba(251, 113, 133, 0.25);
-  --danger-alt: #ff8aa2;
-  --table-heading-bg: #17213a;
-  --published-bg: rgba(74, 222, 128, 0.12);
-  --published-text: #4ade80;
-  --draft-bg: rgba(137, 146, 176, 0.12);
-  --error-text: #fb7185;
-  --shadow-black: rgba(0, 0, 0, 0.35);
 
-  --success-tint: rgba(74, 222, 128, 0.12);
-  --danger-tint: rgba(251, 113, 133, 0.12);
-  --warning-tint: rgba(251, 191, 36, 0.1);
+  --orange: #ffffff;
+
+  --gray: var(--text-muted);
+
+  --border-faint: var(--border-subtle);
+
+  --orange-transparent: rgba(255, 255, 255, 0.04);
+
+  --orange-transparent-strong: rgba(255, 255, 255, 0.08);
+
+  --success-transparent: rgba(255, 255, 255, 0.04);
+
+  --text-muted-light: #999999;
+
+  --shadow-orange: rgba(0, 0, 0, 0.65);
+
+
+  /* ---------------------------------------------------------
+       FORM ELEMENTS
+    --------------------------------------------------------- */
+
+  --input-bg: #080808;
+  --input-bg-hover: #0e0e0e;
+
+  --input-border: #202020;
+  --input-border-focus: #ffffff;
+
+  --input-placeholder: #555555;
+  --placeholder: #555555;
+
+
+  /* ---------------------------------------------------------
+       SHADOW SYSTEM
+    --------------------------------------------------------- */
+
+  --shadow-xs:
+    0 2px 8px rgba(0, 0, 0, 0.45);
+
+  --shadow-sm:
+    0 5px 18px rgba(0, 0, 0, 0.55);
+
+  --shadow-md:
+    0 10px 30px rgba(0, 0, 0, 0.65);
+
+  --shadow-lg:
+    0 18px 50px rgba(0, 0, 0, 0.75);
+
+  --shadow-accent:
+    0 8px 28px rgba(255, 255, 255, 0.06);
+
+
+  /* ---------------------------------------------------------
+       FUTURISTIC GLOW
+    --------------------------------------------------------- */
+
+  --glow:
+    0 0 30px rgba(255, 255, 255, 0.06);
+
+
+  /* ---------------------------------------------------------
+       GLASS EFFECT
+    --------------------------------------------------------- */
+
+  --glass-bg:
+    rgba(8, 8, 8, 0.72);
+
+  --glass-bg-strong:
+    rgba(5, 5, 5, 0.92);
+
+  --glass-border:
+    rgba(255, 255, 255, 0.07);
+
+  --glass-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.65);
+
+  --backdrop-blur: 18px;
+
+
+  /* ---------------------------------------------------------
+       OVERLAYS
+    --------------------------------------------------------- */
+
+  --overlay:
+    rgba(0, 0, 0, 0.82);
+
+  --overlay-light:
+    rgba(0, 0, 0, 0.55);
+
+
+  /* ---------------------------------------------------------
+       TABLE SYSTEM
+    --------------------------------------------------------- */
+
+  --table-heading-bg: #0d0d0d;
+  --table-row-hover: #121212;
+  --table-border: #1b1b1b;
+
+
+  /* ---------------------------------------------------------
+       FOOTER
+    --------------------------------------------------------- */
+
+  --footer-bg: #000000;
+  --footer-border: #151515;
+  --footer-text: #888888;
+
+
+  /* ---------------------------------------------------------
+       FOCUS / ACCESSIBILITY
+    --------------------------------------------------------- */
+
+  --focus-ring:
+    0 0 0 4px rgba(255, 255, 255, 0.12);
+
+
+  /* ---------------------------------------------------------
+       RADIUS SYSTEM
+    --------------------------------------------------------- */
+
+  --radius-xs: 6px;
+  --radius-sm: 9px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+
+
+  /* ---------------------------------------------------------
+       GRADIENTS
+       DARK BLACK → DARK GRAY
+    --------------------------------------------------------- */
+
+  --gradient-primary:
+    linear-gradient(135deg,
+      #ffffff 0%,
+      #bdbdbd 100%);
+
+  --gradient-soft:
+    linear-gradient(135deg,
+      #080808 0%,
+      #151515 100%);
+
+  --gradient-hero:
+    radial-gradient(circle at 85% 20%,
+      rgba(255, 255, 255, 0.045),
+      transparent 35%),
+    radial-gradient(circle at 10% 80%,
+      rgba(255, 255, 255, 0.025),
+      transparent 35%),
+    #030303;
 }
 
 /* ── Reset ── */
@@ -169,7 +386,7 @@ ul {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--orange);
+  background-color: gray;
   color: var(--white);
   border: none;
   padding: 12px 28px;
@@ -344,7 +561,7 @@ ul {
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  background-color: var(--surface-dark);
+  background-color: gray;
   position: absolute;
   z-index: 0;
 }
@@ -355,6 +572,7 @@ ul {
   position: relative;
   z-index: 1;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 
