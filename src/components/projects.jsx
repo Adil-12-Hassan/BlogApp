@@ -79,6 +79,13 @@ const Projects = () => {
             desc: "I create a simple audio editor. You can improve your audio, bass, fade and other things.",
             link: "https://play-station-mu.vercel.app/",
             category: "Frontend"
+        },
+        {
+            id: 12,
+            title: "Pizza Shop",
+            desc: "A full stack resturant app. It containes admin panel to manage website, menu items, bookings, messages and many more features.",
+            link: "https://pizza-paradise-gamma.vercel.app/",
+            category: "Full Stack"
         }
     ];
 
