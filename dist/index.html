@@ -3,12 +3,21 @@
 
 <head>
   <meta charset="UTF-8" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('cwh_theme');
+        var isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDark) document.documentElement.classList.add('dark');
+      } catch (e) {}
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Base SEO Meta Tags -->
-  <title>Adil Hassan | adil12hassan — Web Developer & Blogger</title>
+  <title>Adil Hassan | adil12hassan - Web Developer & Blogger</title>
   <meta name="description" content="Official website of Adil Hassan (adil12hassan / adil-12-hassan). Explore portfolio projects, services, and articles on MERN stack development." />
   <meta name="keywords" content="adil12hassan, adil-12-hassan, Adil Hassan, CodeWithHassan, web developer portfolio, MERN stack developer, freelance developer Pakistan" />
   <meta name="author" content="Adil Hassan" />
@@ -17,14 +26,14 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://code-with-hassan-phi.vercel.app" />
-  <meta property="og:title" content="Adil Hassan | adil12hassan — Web Developer & Blogger" />
+  <meta property="og:title" content="Adil Hassan | adil12hassan - Web Developer & Blogger" />
   <meta property="og:description" content="Official website of Adil Hassan (adil12hassan / adil-12-hassan). Explore portfolio projects, services, and articles on MERN stack development." />
   <meta property="og:image" content="https://code-with-hassan-phi.vercel.app/my.jpg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://code-with-hassan-phi.vercel.app" />
-  <meta name="twitter:title" content="Adil Hassan | adil12hassan — Web Developer & Blogger" />
+  <meta name="twitter:title" content="Adil Hassan | adil12hassan - Web Developer & Blogger" />
   <meta name="twitter:description" content="Official website of Adil Hassan (adil12hassan / adil-12-hassan). Explore portfolio projects, services, and articles on MERN stack development." />
   <meta name="twitter:image" content="https://code-with-hassan-phi.vercel.app/my.jpg" />
 
@@ -32,6 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+  <meta name="google-site-verification" content="u_t8dTIho4FzAtMQWnvUt3H15xvvhQT48ZTCBZwzfxI" />
   <!-- Structured Data / JSON-LD for Search Engine Rich Snippets -->
   <script type="application/ld+json">
     {
@@ -50,13 +60,12 @@
       "description": "Adil Hassan is a professional MERN stack developer and blogger from Pakistan."
     }
   </script>
-  <script type="module" crossorigin src="/assets/index-BnN3v-HG.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-BRtsQJNT.css">
+  <script type="module" crossorigin src="/assets/index-CY3XtnU7.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BOc88LCO.css">
 </head>
 
 <body>
-  <div id="root"></div>
-
+  <div id="root"></div>
 </body>
 
 </html>

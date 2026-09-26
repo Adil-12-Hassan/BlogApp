@@ -1,4 +1,4 @@
-# 🚀 Syed Hassan — MERN Stack Developer Portfolio
+# 🚀 Syed Hassan - MERN Stack Developer Portfolio
 
 <div align="center">
 
@@ -17,20 +17,20 @@
 
 ## 📌 About
 
-A personal developer portfolio built with **React + Vite** on the frontend and **Node.js + Express** on the backend. Designed to showcase my skills, services, and projects as a full-stack MERN developer — clean, fast, responsive, and production-ready.
+A personal developer portfolio built with **React + Vite** on the frontend and **Node.js + Express** on the backend. Designed to showcase my skills, services, and projects as a full-stack MERN developer - clean, fast, responsive, and production-ready.
 
 ---
 
 ## ✨ Features
 
-- ⚡ **Blazing fast** — powered by Vite bundler
-- 📱 **Fully responsive** — works on all screen sizes (desktop, tablet, mobile)
-- 🎨 **Smooth animations** — skill bars, scroll effects, hover transitions
-- 📬 **Working contact form** — sends real emails via Nodemailer + Gmail SMTP
-- ✅ **Form validation** — real-time field validation with error/success states
-- 🔢 **Character counter** — live counter on message textarea (max 500 chars)
-- 🔗 **Active nav links** — highlights current section on scroll
-- 🍔 **Hamburger menu** — animated mobile navigation
+- ⚡ **Blazing fast** - powered by Vite bundler
+- 📱 **Fully responsive** - works on all screen sizes (desktop, tablet, mobile)
+- 🎨 **Smooth animations** - skill bars, scroll effects, hover transitions
+- 📬 **Working contact form** - sends real emails via Nodemailer + Gmail SMTP
+- ✅ **Form validation** - real-time field validation with error/success states
+- 🔢 **Character counter** - live counter on message textarea (max 500 chars)
+- 🔗 **Active nav links** - highlights current section on scroll
+- 🍔 **Hamburger menu** - animated mobile navigation
 
 ---
 
@@ -40,16 +40,16 @@ A personal developer portfolio built with **React + Vite** on the frontend and *
 |---|---|
 | **Hero** | Introduction, social links, stats, and CTA buttons |
 | **About** | Bio, info grid, and animated skill bars |
-| **Services** | 6 service cards — Frontend, Backend, API, DB, Full Stack, UI/UX |
+| **Services** | 6 service cards - Frontend, Backend, API, DB, Full Stack, UI/UX |
 | **Projects** | All personal and client projects with live/GitHub links |
 | **Contact** | Contact info + working email form |
 | **Footer** | Quick links, services, contact details |
 
 ### 🗂️ Projects Section
 
-The portfolio includes a dedicated **Projects** section that showcases all my work — personal builds, client projects, and open-source contributions. Each project card displays:
+The portfolio includes a dedicated **Projects** section that showcases all my work - personal builds, client projects, and open-source contributions. Each project card displays:
 
-- **Category tag** — e.g. Full Stack, Frontend, API
+- **Category tag** - e.g. Full Stack, Frontend, API
 - **Project title and description**
 - **Live demo link** and **GitHub repository link**
 
@@ -60,18 +60,18 @@ Projects are displayed in a responsive grid that adapts from 3 columns on deskto
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React.js** — component-based UI
-- **Vite** — fast dev server and optimized builds
-- **CSS3** — custom properties, flexbox, grid, animations
-- **Font Awesome** — icons
-- **Google Fonts** — Poppins
+- **React.js** - component-based UI
+- **Vite** - fast dev server and optimized builds
+- **CSS3** - custom properties, flexbox, grid, animations
+- **Font Awesome** - icons
+- **Google Fonts** - Poppins
 
 ### Backend
-- **Node.js** — runtime
-- **Express.js** — REST API server
-- **Nodemailer** — email sending via Gmail SMTP
-- **CORS** — cross-origin request handling
-- **dotenv** — environment variable management
+- **Node.js** - runtime
+- **Express.js** - REST API server
+- **Nodemailer** - email sending via Gmail SMTP
+- **CORS** - cross-origin request handling
+- **dotenv** - environment variable management
 
 ---
 
@@ -205,7 +205,7 @@ Set all `.env` variables in the Vercel dashboard under **Project → Settings �
 ## 👨‍💻 Author
 
 **Syed Hassan**
-MERN Stack Developer — Faisalabad, Pakistan
+MERN Stack Developer - Faisalabad, Pakistan
 
 [![GitHub](https://img.shields.io/badge/GitHub-adil--12--hassan-181717?style=flat&logo=github)](https://github.com/adil-12-hassan)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Live-orange?style=flat&logo=vercel)](https://hassan-porfolio-web.vercel.app/)

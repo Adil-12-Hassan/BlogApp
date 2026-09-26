@@ -1,20 +1,22 @@
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import Home from './pages/home';
-import AdminLogin from './pages/admin/adminLogin';
-import AdminDashboard from './pages/admin/adminDashboard';
-import AdminBlogEditor from './pages/admin/adminBlogEditor';
-import BlogDetail from './pages/blogDetail';
-import NotFound from './components/notFound';
-import ProtectedRoute from './components/ProtectedRoute';
+import { ThemeProvider } from './app/providers/ThemeProvider';
+import HomePage from './features/home/HomePage';
+import AdminLogin from './features/admin/AdminLogin';
+import AdminDashboard from './features/admin/AdminDashboard';
+import AdminBlogEditor from './features/admin/AdminBlogEditor';
+import ProtectedRoute from './features/admin/ProtectedRoute';
+import BlogDetail from './features/blog/BlogDetail';
+import NotFound from './components/layout/NotFound';
+
 function AppRoutes() {
   const navigate = useNavigate();
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/blog/:slug" element={<BlogDetail />} />
       <Route path="/admin" element={<AdminLogin onLoginSuccess={() => navigate('/admin/dashboard')} />} />
-      
+
       {/* Protected Admin Routes */}
       <Route
         path="/admin/dashboard"
@@ -24,31 +26,31 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
-      <Route 
-        path="/admin/blog/new" 
+      <Route
+        path="/admin/blog/new"
         element={
           <ProtectedRoute>
             <AdminBlogEditor onCancel={() => navigate('/admin/dashboard')} />
           </ProtectedRoute>
-        } 
+        }
       />
-      <Route 
-        path="/admin/blog/edit/:id" 
+      <Route
+        path="/admin/blog/edit/:id"
         element={
           <ProtectedRoute>
             <AdminBlogEditor onCancel={() => navigate('/admin/dashboard')} />
           </ProtectedRoute>
-        } 
+        }
       />
-      <Route 
-        path="/admin/blogs" 
+      <Route
+        path="/admin/blogs"
         element={
           <ProtectedRoute>
             <AdminDashboard />
           </ProtectedRoute>
-        } 
+        }
       />
-      
+
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
@@ -56,8 +58,10 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
