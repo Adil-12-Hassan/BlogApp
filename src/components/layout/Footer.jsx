@@ -11,10 +11,10 @@ const FooterLink = ({ href, children, isHomePage }) => {
 
 const socialLinks = [
     { href: 'https://github.com/adil-12-hassan/', icon: 'fa-brands fa-github', label: 'GitHub' },
-    { href: 'https://www.linkedin.com/in/adil-12-hassan/', icon: 'fa-brands fa-linkedin-in', label: 'LinkedIn' },
+    { href: 'https://www.linkedin.com/in/adil12hassan/', icon: 'fa-brands fa-linkedin-in', label: 'LinkedIn' },
     { href: 'https://www.youtube.com/channel/UCzT4olXB1mfr2Dk6qhy0WEA', icon: 'fa-brands fa-youtube', label: 'YouTube' },
-    { href: 'https://www.instagram.com/adilhassan107/', icon: 'fa-brands fa-instagram', label: 'Instagram' },
-    { href: 'https://twitter.com/adilhassan107', icon: 'fa-brands fa-x-twitter', label: 'Twitter/X' },
+    { href: 'https://www.instagram.com/adilhassan107adil12hassan/', icon: 'fa-brands fa-instagram', label: 'Instagram' },
+    { href: 'https://twitter.com/adil12hassan', icon: 'fa-brands fa-x-twitter', label: 'Twitter/X' },
 ];
 
 const quickLinks = [
