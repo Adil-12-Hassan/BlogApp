@@ -60,11 +60,10 @@ export default function Navbar() {
     return (
         <nav
             ref={navRef}
-            className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
-                scrolled
+            className={`sticky top-0 z-50 border-b transition-colors duration-300 ${scrolled
                     ? 'bg-surface/90 dark:bg-surface-dark/90 backdrop-blur-md border-border dark:border-border-dark'
                     : 'bg-surface dark:bg-surface-dark border-transparent'
-            }`}
+                }`}
         >
             <div className="container-page flex items-center justify-between py-4">
                 <Link to="/" className="text-lg font-extrabold tracking-tight text-ink dark:text-ink-dark">
@@ -106,9 +105,8 @@ export default function Navbar() {
 
             {/* Mobile menu */}
             <ul
-                className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out bg-surface dark:bg-surface-dark border-t border-border dark:border-border-dark ${
-                    menuOpen ? 'max-h-96' : 'max-h-0 border-t-0'
-                }`}
+                className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out bg-surface dark:bg-surface-dark border-t border-border dark:border-border-dark ${menuOpen ? 'max-h-96' : 'max-h-0 border-t-0'
+                    }`}
             >
                 <div className="container-page py-4 flex flex-col gap-1">
                     {navLinks.map((link) => (
