@@ -5,6 +5,7 @@ import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 import SEOHead from '../../components/seo/SEOHead';
 import API_BASE_URL from '../../lib/api';
+import BlogInteractions from './BlogInteractions';
 
 export default function BlogDetail() {
     const { slug } = useParams();
@@ -143,6 +144,8 @@ export default function BlogDetail() {
                             {blog.content}
                         </div>
                     </article>
+
+                    <BlogInteractions blog={blog} />
 
                     {recentBlogs.length > 0 && (
                         <section className="mt-16 pt-10 border-t border-border dark:border-border-dark">

@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import SectionTitle from '../../components/ui/SectionTitle'
 import API_BASE_URL from '../../lib/api'
 
@@ -18,14 +19,26 @@ const socials = [
 ]
 
 export default function Contact() {
+    const location = useLocation()
+    const requestedService = location.state?.service || ''
     const [formData, setFormData] = useState({
-        name: '', email: '', subject: '', message: ''
+        name: '', email: '', subject: requestedService ? `Project inquiry: ${requestedService}` : '',
+        message: requestedService ? `I'm interested in ${requestedService}. Here are my project details:\n` : ''
     })
     const [errors, setErrors] = useState({})
     const [status, setStatus] = useState({ msg: '', type: '' })
     const [loading, setLoading] = useState(false)
 
     const charCount = formData.message.length
+
+    useEffect(() => {
+        if (!requestedService) return
+        setFormData((previous) => ({
+            ...previous,
+            subject: `Project inquiry: ${requestedService}`,
+            message: previous.message || `I'm interested in ${requestedService}. Here are my project details:\n`,
+        }))
+    }, [requestedService])
 
     const validateField = (name, value) => {
         const val = value.trim()

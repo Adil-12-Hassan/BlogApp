@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import API_BASE_URL from '../../lib/api';
 import SectionTitle from '../../components/ui/SectionTitle'
+import { getBlogDate } from '../blog/blogUtils'
 
 export default function Blog() {
     const [blogs, setBlogs] = useState([]);
@@ -14,7 +15,8 @@ export default function Blog() {
                 const res = await fetch(`${API_BASE_URL}/blogs`);
                 const data = await res.json();
                 if (res.ok) {
-                    setBlogs(data);
+                    const recentFirst = [...data].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                    setBlogs(recentFirst.slice(0, 3));
                 } else {
                     setError(data.message || 'Failed to fetch blogs');
                 }
@@ -53,10 +55,10 @@ export default function Blog() {
                                 key={blog._id}
                                 className="card group flex flex-col overflow-hidden hover:-translate-y-1 hover:border-accent dark:hover:border-accent-dark transition-all duration-300"
                             >
-                                {blog.thumbnail && (
+                                {(blog.coverImage || blog.thumbnail) && (
                                     <div className="aspect-[16/10] overflow-hidden">
                                         <img
-                                            src={blog.thumbnail}
+                                            src={blog.coverImage || blog.thumbnail}
                                             alt={blog.title}
                                             loading="lazy"
                                             className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -65,11 +67,7 @@ export default function Blog() {
                                 )}
                                 <div className="p-6 flex flex-col flex-1">
                                     <div className="flex items-center gap-3 mb-3 text-xs">
-                                        <span className="text-ink-muted dark:text-ink-dark-muted">
-                                            {new Date(blog.createdAt).toLocaleDateString('en-US', {
-                                                month: 'short', day: 'numeric', year: 'numeric'
-                                            })}
-                                        </span>
+                                        <span className="text-ink-muted dark:text-ink-dark-muted">{getBlogDate(blog.createdAt)}</span>
                                         {blog.tags && blog.tags.length > 0 && (
                                             <span className="px-2 py-0.5 rounded-full bg-accent-soft dark:bg-accent-dark-soft text-accent dark:text-accent-dark font-medium">
                                                 {blog.tags[0]}
@@ -84,6 +82,11 @@ export default function Blog() {
                                 </div>
                             </Link>
                         ))}
+                    </div>
+                )}
+                {!loading && !error && blogs.length > 0 && (
+                    <div className="mt-10 text-center">
+                        <Link to="/blogs" className="btn-outline">View all blogs <i className="fa-solid fa-arrow-right text-xs" /></Link>
                     </div>
                 )}
             </div>

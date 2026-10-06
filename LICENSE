@@ -1,14 +1,5 @@
-Copyright (c) 2026 Adil Hassan
+# Client License Notice
 
-All rights reserved.
+The client application is part of the CodeWithHassan Software and is covered by the [repository license](../LICENSE). The same terms apply; this file does not grant any additional or different rights.
 
-This software and its associated source code, documentation, designs, and other
-materials are the exclusive property of Adil Hassan.
-
-No permission is granted to use, copy, modify, merge, publish, distribute,
-sublicense, sell, or create derivative works from any part of this software
-without prior written permission from the copyright holder.
-
-The software is provided "as is", without warranty of any kind, express or
-implied. In no event shall the copyright holder be liable for any claim,
-damages, or other liability arising from the use of the software.
+Third-party packages, images, fonts, and other media remain subject to their own licenses.

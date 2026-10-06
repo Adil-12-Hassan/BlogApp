@@ -1,20 +1,21 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ThemeToggle from '../ui/ThemeToggle'
+import { useUserAuth } from '../../features/user/UserAuthContext'
 
 const navLinks = [
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
-    { href: '#services', label: 'Services' },
+    { href: '/services', label: 'Services', pagePath: true },
     { href: '#profiles', label: 'Profiles' },
     { href: '#projects', label: 'Projects' },
-    { href: '#blog', label: 'Blogs' },
+    { href: '/blogs', label: 'Blogs', pagePath: true },
 ]
 
-const NavItem = ({ href, children, isHomePage, closeMenu }) => {
+const NavItem = ({ href, pagePath, children, isHomePage, closeMenu }) => {
     const className =
         'block py-2 text-sm font-medium text-ink-soft dark:text-ink-dark-soft hover:text-accent dark:hover:text-accent-dark transition-colors'
-    if (isHomePage && href.startsWith('#')) {
+    if (isHomePage && !pagePath && href.startsWith('#')) {
         return (
             <li>
                 <a href={href} onClick={closeMenu} className={className}>
@@ -25,7 +26,7 @@ const NavItem = ({ href, children, isHomePage, closeMenu }) => {
     }
     return (
         <li>
-            <Link to={`/${href}`} onClick={closeMenu} className={className}>
+            <Link to={pagePath ? href : `/${href}`} onClick={closeMenu} className={className}>
                 {children}
             </Link>
         </li>
@@ -37,6 +38,7 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false)
     const navRef = useRef(null)
     const location = useLocation()
+    const { user } = useUserAuth()
     const isHomePage = location.pathname === '/'
 
     const closeMenu = () => setMenuOpen(false)
@@ -70,16 +72,19 @@ export default function Navbar() {
                     HASSAN<span className="text-accent dark:text-accent-dark">.</span>
                 </Link>
 
-                <ul className="hidden md:flex items-center gap-8">
+                <ul className="hidden lg:flex items-center gap-6 xl:gap-8">
                     {navLinks.map((link) => (
-                        <NavItem key={link.href} href={link.href} isHomePage={isHomePage} closeMenu={closeMenu}>
+                        <NavItem key={link.href} href={link.href} pagePath={link.pagePath} isHomePage={isHomePage} closeMenu={closeMenu}>
                             {link.label}
                         </NavItem>
                     ))}
                 </ul>
 
-                <div className="hidden md:flex items-center gap-3">
+                <div className="hidden lg:flex items-center gap-2 xl:gap-3">
                     <ThemeToggle />
+                    <Link to={user ? '/dashboard' : '/login'} className="rounded-full px-4 py-2.5 text-xs font-semibold text-ink-soft transition-colors hover:bg-surface-soft hover:text-ink dark:text-ink-dark-soft dark:hover:bg-surface-dark-soft dark:hover:text-ink-dark">
+                        <i className="fa-regular fa-user mr-2" />{user ? 'Dashboard' : 'Sign in'}
+                    </Link>
                     {isHomePage ? (
                         <a href="#contact" className="btn-primary !px-5 !py-2.5 text-xs">Hire for Work</a>
                     ) : (
@@ -87,7 +92,7 @@ export default function Navbar() {
                     )}
                 </div>
 
-                <div className="flex items-center gap-2 md:hidden">
+                <div className="flex items-center gap-2 lg:hidden">
                     <ThemeToggle />
                     <button
                         className="grid h-10 w-10 place-items-center"
@@ -105,16 +110,19 @@ export default function Navbar() {
 
             {/* Mobile menu */}
             <ul
-                className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out bg-surface dark:bg-surface-dark border-t border-border dark:border-border-dark ${menuOpen ? 'max-h-96' : 'max-h-0 border-t-0'
+                className={`lg:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out bg-surface dark:bg-surface-dark border-t border-border dark:border-border-dark ${menuOpen ? 'max-h-96' : 'max-h-0 border-t-0'
                     }`}
             >
                 <div className="container-page py-4 flex flex-col gap-1">
                     {navLinks.map((link) => (
-                        <NavItem key={link.href} href={link.href} isHomePage={isHomePage} closeMenu={closeMenu}>
+                        <NavItem key={link.href} href={link.href} pagePath={link.pagePath} isHomePage={isHomePage} closeMenu={closeMenu}>
                             {link.label}
                         </NavItem>
                     ))}
                     <div className="pt-3">
+                        <Link to={user ? '/dashboard' : '/login'} onClick={closeMenu} className="mb-3 flex items-center justify-center gap-2 rounded-xl border border-border py-3 text-sm font-semibold text-ink dark:border-border-dark dark:text-ink-dark">
+                            <i className="fa-regular fa-user" />{user ? 'Open dashboard' : 'Sign in'}
+                        </Link>
                         {isHomePage ? (
                             <a href="#contact" onClick={closeMenu} className="btn-primary w-full">Hire for Work</a>
                         ) : (

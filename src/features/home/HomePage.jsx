@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import SEOHead from "../../components/seo/SEOHead";
@@ -10,6 +12,16 @@ import Blog from "./Blog";
 import Contact from "./Contact";
 
 export default function HomePage() {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (!location.hash) return undefined;
+        const frame = window.requestAnimationFrame(() => {
+            document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+        });
+        return () => window.cancelAnimationFrame(frame);
+    }, [location.hash]);
+
     return (
         <>
             <SEOHead
