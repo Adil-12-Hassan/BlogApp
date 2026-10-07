@@ -5,6 +5,7 @@ const projectList = [
     { id: 1, title: 'Pizza Shop', desc: 'A full stack resturant app. It containes admin panel to manage website, menu items, bookings, messages and many more features.', link: 'https://pizza-paradise-gamma.vercel.app/', category: 'Full Stack' },
     { id: 2, title: 'Muhammad Ali Website', desc: 'A dedicated website built with a focus on branding and user engagement.', link: 'https://muhammad-ali-website.vercel.app/', category: 'Website' },
     { id: 3, title: 'My Landing Pages', desc: 'I create a website from my all small projects that was like pieces of a main thing.', link: 'https://hassan-pages.vercel.app/', category: 'Website' },
+    { id: 4, title: 'ZARR | A Premium Watch Store', desc: 'I create a complete e-commerce website from scratch using MERN Stack.', link: 'https://zarr-ecommerce.vercel.app/', category: 'Full Stack' },
 ]
 
 const Projects = () => {
