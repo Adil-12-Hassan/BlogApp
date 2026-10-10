@@ -153,9 +153,9 @@ export default function BlogDetail() {
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                                 {recentBlogs.map((recent) => (
                                     <Link to={`/blog/${recent.slug || recent._id}`} key={recent._id} className="card overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
-                                        {(recent.coverImage || recent.thumbnail) && (
+                                        {recent.thumbnail && (
                                             <div className="aspect-[16/10] overflow-hidden">
-                                                <img src={recent.coverImage || recent.thumbnail} alt={recent.title} loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                                <img src={recent.thumbnail} alt={recent.title} loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                             </div>
                                         )}
                                         <div className="p-4">

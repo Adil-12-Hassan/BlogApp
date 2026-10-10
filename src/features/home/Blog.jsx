@@ -55,10 +55,10 @@ export default function Blog() {
                                 key={blog._id}
                                 className="card group flex flex-col overflow-hidden hover:-translate-y-1 hover:border-accent dark:hover:border-accent-dark transition-all duration-300"
                             >
-                                {(blog.coverImage || blog.thumbnail) && (
+                                {blog.thumbnail && (
                                     <div className="aspect-[16/10] overflow-hidden">
                                         <img
-                                            src={blog.coverImage || blog.thumbnail}
+                                            src={blog.thumbnail}
                                             alt={blog.title}
                                             loading="lazy"
                                             className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
